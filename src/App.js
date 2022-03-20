@@ -5,6 +5,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import AddUser from "./pages/AddUser";
+import EditUser from "./pages/EditUser";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/addUser" element={<AddUser />} />
+            <Route path="/editUser/:id" element={<EditUser />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -3,14 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
-import { UserReducer } from "./redux/reducers/UserReducer";
-// rt { composeWithDevTools } from "@redux-devtools/extension";
 import { Provider } from "react-redux";
-// import "react-toastify/dist/ReactToastify.css";
-// import { composeWithDevTools } from "redux-devtools-extension";
+import store from "./redux/store";
 
-const store = createStore(UserReducer);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

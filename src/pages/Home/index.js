@@ -9,16 +9,24 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { DeleteUser, loadUser } from "../../redux/action";
 const Home = () => {
-  const [user, setUser] = useState([]);
+  // yh data root-reducer s aya hay
+  const { users } = useSelector((state) => state.data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
-    loadUser();
+    dispatch(loadUser());
   }, []);
-
-  const loadUser = async () => {
-    const result = await axios.get("http://localhost:3003/user");
-    setUser(result.data);
+  const DeletedUser = (id) => {
+    if (window.confirm("sure??")) {
+      dispatch(DeleteUser(id));
+    }
   };
+
   return (
     <>
       <TableContainer component={Paper}>
@@ -33,7 +41,7 @@ const Home = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {user.map((user) => (
+            {users.map((user) => (
               <TableRow
                 key={user.id}
                 // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -54,12 +62,12 @@ const Home = () => {
                   <NavLink to="/view">
                     <Button>View</Button>
                   </NavLink>
-                  <NavLink to="/edit">
-                    <Button>edit</Button>
-                  </NavLink>
-                  <NavLink to="/delete">
-                    <Button>delete</Button>
-                  </NavLink>
+
+                  <Button onClick={() => navigate(`/editUser/${user.id}`)}>
+                    edit
+                  </Button>
+
+                  <Button onClick={() => DeletedUser(user.id)}>delete</Button>
                 </TableCell>
               </TableRow>
             ))}
