@@ -21,6 +21,11 @@ export default function Navbar() {
               adduser
             </NavLink>
           </Button>
+          <Button>
+            <NavLink exact to="/multiInfo" style={{ textDecoration: "none" }}>
+              Multi Info
+            </NavLink>
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

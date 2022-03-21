@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import AddUser from "./pages/AddUser";
 import EditUser from "./pages/EditUser";
+import MultiStep from "./pages/multiStep";
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/addUser" element={<AddUser />} />
             <Route path="/editUser/:id" element={<EditUser />} />
+            <Route path="/multiInfo" element={<MultiStep />} />
           </Routes>
         </BrowserRouter>
       </div>

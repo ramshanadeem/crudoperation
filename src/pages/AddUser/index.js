@@ -1,10 +1,13 @@
+/* eslint-disable no-implied-eval */
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Grid } from "@mui/material";
+import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { ADDuser } from "../../redux/action";
 import { useNavigate } from "react-router";
+import AnimatedButton from "../../components/animatedButton";
 
 export default function AddUser() {
   const dispatch = useDispatch();
@@ -16,6 +19,7 @@ export default function AddUser() {
     email: "",
   });
   const [error, setError] = useState();
+
   const { id, name, username, email } = state;
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -31,8 +35,28 @@ export default function AddUser() {
       setError("");
     }
   };
+
   return (
     <>
+      <motion.div
+        style={{
+          position: "absolute",
+
+          zIndex: 2,
+          maxHeight: 40,
+          height: 40,
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0px 10px",
+        }}
+      >
+        {" "}
+        <AnimatedButton iconPosition="right" animateHover />
+      </motion.div>
+
       <h4 style={{ color: "red" }}> {error}</h4>
       <Grid container rowSpacing={1}>
         <Grid item xs={5}></Grid>
