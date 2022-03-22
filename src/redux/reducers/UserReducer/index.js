@@ -2,6 +2,7 @@ import * as types from "../../actionTypes";
 const initialState = {
   users: [],
   user: {},
+  multiUser: {},
   loading: true,
 };
 
@@ -11,6 +12,11 @@ export const UserReducer = (state = initialState, action) => {
       return {
         ...state,
         users: action.payload,
+        loading: false,
+      };
+    case types.MULTI_USER:
+      return {
+        ...state,
         loading: false,
       };
     case types.DELETE_USER:

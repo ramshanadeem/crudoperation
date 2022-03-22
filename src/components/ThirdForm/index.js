@@ -24,7 +24,7 @@ export default function ThirdForm() {
             }}
           >
             <Box
-              component="form"
+              // scomponent="form"
               sx={{
                 "& > :not(style)": { m: 1, width: "25ch" },
               }}
@@ -34,27 +34,31 @@ export default function ThirdForm() {
               <Controller
                 control={control}
                 name="PhonenNumber"
-                render={({ field }) => (
-                  <TextField
-                    id="outlined-basic"
-                    label="Phonen Number"
-                    variant="outlined"
-                    {...field}
-                  />
-                )}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="Phonen Number"
+                      variant="outlined"
+                      {...field}
+                    />
+                  );
+                }}
               />
               <br />
               <Controller
                 control={control}
                 name="website"
-                render={({ field }) => (
-                  <TextField
-                    id="outlined-basic"
-                    label="website"
-                    variant="outlined"
-                    {...field}
-                  />
-                )}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="website"
+                      variant="outlined"
+                      {...field}
+                    />
+                  );
+                }}
               />
             </Box>
           </div>

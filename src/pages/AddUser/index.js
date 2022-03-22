@@ -58,54 +58,64 @@ export default function AddUser() {
       </motion.div>
 
       <h4 style={{ color: "red" }}> {error}</h4>
-      <Grid container rowSpacing={1}>
-        <Grid item xs={5}></Grid>
-        <Grid item xs={7}>
-          <div
+      <Grid container spacing={2} direction="column">
+        <Grid item xs={12} alignSelf="center">
+          {/* <Grid item xs={4}></Grid> */}
+          <Grid
+            item
+            xs={12}
             style={{
-              width: "fit-content",
-              padding: "10px",
               boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+              width: "fit-content",
             }}
           >
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "25ch" },
-              }}
-              noValidate
-              autoComplete="off"
-              onSubmit={handleSubmit}
+            <div
+            // style={{
+            //   width: "fit-content",
+            //   padding: "10px",
+            //   boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+            // }}
             >
-              <TextField
-                id="outlined-basic"
-                label="Name"
-                variant="outlined"
-                value={name}
-                name="name"
-                onChange={handleInputChange}
-              />
-              <br />
-              <TextField
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                value={username}
-                name="username"
-                onChange={handleInputChange}
-              />
-              <br />
-              <TextField
-                id="outlined-basic"
-                label="email"
-                variant="outlined"
-                value={email}
-                name="email"
-                onChange={handleInputChange}
-              />
-            </Box>
-            <Button onClick={handleSubmit}>Add user</Button>
-          </div>
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": { m: 1, width: "25ch" },
+                }}
+                noValidate
+                autoComplete="off"
+                onSubmit={handleSubmit}
+              >
+                <TextField
+                  id="outlined-basic"
+                  label="Name"
+                  variant="outlined"
+                  value={name}
+                  name="name"
+                  onChange={handleInputChange}
+                />
+                <br />
+                <TextField
+                  id="outlined-basic"
+                  label="username"
+                  variant="outlined"
+                  value={username}
+                  name="username"
+                  onChange={handleInputChange}
+                />
+                <br />
+                <TextField
+                  id="outlined-basic"
+                  label="email"
+                  variant="outlined"
+                  value={email}
+                  name="email"
+                  onChange={handleInputChange}
+                />
+              </Box>
+              <Button onClick={handleSubmit}>Add user</Button>
+            </div>
+          </Grid>
+          {/* <Grid item xs={4} /> */}
         </Grid>
       </Grid>
     </>

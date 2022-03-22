@@ -17,6 +17,9 @@ const editUser = () => ({
 const AddUser = () => ({
   type: types.ADD_USER,
 });
+const AddMulltiuser = () => ({
+  type: types.MULTI_USER,
+});
 export const loadUser = () => {
   return function (dispatch) {
     axios
@@ -83,6 +86,20 @@ export const ADDuser = (user) => {
         console.log(res, "res");
         dispatch(AddUser());
         dispatch(loadUser());
+      })
+      .catch((error) => {
+        console.log(error, "error");
+      });
+  };
+};
+export const AddMultiUser = (multiUser) => {
+  return async (dispatch) => {
+    await axios
+      .post("http://localhost:3003/user", multiUser)
+      .then((res) => {
+        dispatch(AddMulltiuser());
+        // dispatch(loadUser(res.data.users[0].control));
+        // console.log(res.data.users[0].control, "res.data.users[0].control");
       })
       .catch((error) => {
         console.log(error, "error");

@@ -16,6 +16,7 @@ import { DeleteUser, loadUser } from "../../redux/action";
 const Home = () => {
   // yh data root-reducer s aya hay
   const { users } = useSelector((state) => state.data);
+  console.log(users, "userrs");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -59,6 +60,22 @@ const Home = () => {
                   {user.email}
                 </TableCell>
                 <TableCell component="th" scope="row">
+                  {user.city}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {user.phoneNumber}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {user.street}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {user.website}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {user.zipCode}
+                </TableCell>
+
+                <TableCell component="th" scope="row">
                   <NavLink to="/view">
                     <Button>View</Button>
                   </NavLink>
@@ -66,7 +83,9 @@ const Home = () => {
                   <Button onClick={() => navigate(`/editUser/${user.id}`)}>
                     edit
                   </Button>
-
+                  <Button onClick={() => navigate(`/editMultiUser/${user.id}`)}>
+                    editMulti
+                  </Button>
                   <Button onClick={() => DeletedUser(user.id)}>delete</Button>
                 </TableCell>
               </TableRow>

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import AddUser from "./pages/AddUser";
 import EditUser from "./pages/EditUser";
 import MultiStep from "./pages/multiStep";
+import EditMultiUser from "./pages/EditMultiUser.js";
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
             <Route path="/addUser" element={<AddUser />} />
             <Route path="/editUser/:id" element={<EditUser />} />
             <Route path="/multiInfo" element={<MultiStep />} />
+            <Route path="/editMultiUser/:id" element={<EditMultiUser />} />
           </Routes>
         </BrowserRouter>
       </div>

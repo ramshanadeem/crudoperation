@@ -46,16 +46,26 @@ export default function EditUser() {
   return (
     <>
       <h4 style={{ color: "red" }}> {error}</h4>
-      <Grid container rowSpacing={1}>
-        <Grid item xs={5}></Grid>
-        <Grid item xs={7}>
-          <div
+      <Grid container spacing={2} direction="column">
+        <Grid item xs={12} md={12} alignSelf="center">
+          <Grid item xs={2} />
+          <Grid
+            item
+            xs={12}
+            // sm={4}
+            // md={6}
             style={{
-              width: "fit-content",
-              padding: "10px",
               boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+              // width: "fit-content",
             }}
           >
+            {/* <div
+              style={{
+                width: "fit-content",
+                padding: "10px",
+                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+              }}
+            > */}
             <Box
               component="form"
               sx={{
@@ -63,7 +73,7 @@ export default function EditUser() {
               }}
               noValidate
               autoComplete="off"
-              // onSubmit={handleSubmit}
+              onSubmit={handleSubmit}
             >
               <TextField
                 id="outlined-basic"
@@ -83,17 +93,24 @@ export default function EditUser() {
                 onChange={handleInputChange}
               />
               <br />
-              <TextField
-                id="outlined-basic"
-                label="email"
-                variant="outlined"
-                value={email}
-                name="email"
-                onChange={handleInputChange}
-              />
+              <Grid item xs zeroMinWidth>
+                <TextField
+                  id="outlined-basic"
+                  label="email"
+                  variant="outlined"
+                  value={email}
+                  name="email"
+                  onChange={handleInputChange}
+                  sx={{
+                    "& .MuiTextField-root": { width: "100%" },
+                  }}
+                />
+              </Grid>
             </Box>
             <Button onClick={handleSubmit}>Update user</Button>
-          </div>
+            {/* </div> */}
+          </Grid>
+          <Grid item xs={2} />
         </Grid>
       </Grid>
     </>

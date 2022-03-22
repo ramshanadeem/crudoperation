@@ -25,7 +25,7 @@ export default function SecondForm() {
             }}
           >
             <Box
-              component="form"
+              // component="form"
               sx={{
                 "& > :not(style)": { m: 1, width: "25ch" },
               }}
@@ -35,45 +35,51 @@ export default function SecondForm() {
               <Controller
                 control={control}
                 name="street"
-                render={({ field }) => (
-                  <TextField
-                    id="outlined-basic"
-                    label="street"
-                    variant="outlined"
-                    // value={street}
-                    {...field}
-                    // onChange={handleInputChange}
-                  />
-                )}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="street"
+                      variant="outlined"
+                      // value={street}
+                      {...field}
+                      // onChange={handleInputChange}
+                    />
+                  );
+                }}
               />
               <br />
               <Controller
                 control={control}
                 name="city"
-                render={({ field }) => (
-                  <TextField
-                    id="outlined-basic"
-                    label="city"
-                    variant="outlined"
-                    // value={city}
-                    {...field}
-                    // onChange={handleInputChange}
-                  />
-                )}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="city"
+                      variant="outlined"
+                      // value={city}
+                      {...field}
+                      // onChange={handleInputChange}
+                    />
+                  );
+                }}
               />
               <br />
               <Controller
                 control={control}
                 name="zipCode"
                 render={({ field }) => {
-                  <TextField
-                    id="outlined-basic"
-                    label="zipCode"
-                    variant="outlined"
-                    // value={zipCode}
-                    // onChange={handleInputChange}
-                    {...field}
-                  />;
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="zipCode"
+                      variant="outlined"
+                      // value={city}
+                      {...field}
+                      // onChange={handleInputChange}
+                    />
+                  );
                 }}
               />
             </Box>

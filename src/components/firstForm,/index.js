@@ -11,21 +11,30 @@ export default function FirstForm() {
 
   return (
     <>
-      <Grid container rowSpacing={1}>
-        <Grid item xs={5}></Grid>
-        <Grid item xs={7}>
-          <div
+      <Grid container spacing={5} direction="column">
+        <Grid item xs={12} md={12}></Grid>
+        <Grid item xs={12} alignSelf="center">
+          <Grid
+            item
+            mt={10}
+            xs={12}
             style={{
-              backgroundColor: "#ffff",
               boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
               width: "fit-content",
-              padding: "10px",
-              marginLeft: "-46px",
-              marginTop: "112px",
             }}
           >
+            {/* <div
+              style={{
+                backgroundColor: "#ffff",
+                boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                width: "fit-content",
+                padding: "10px",
+                marginLeft: "-46px",
+                marginTop: "112px",
+              }} */}
+            {/* > */}
             <Box
-              component="form"
+              // component="form"
               sx={{
                 "& > :not(style)": { m: 1, width: "25ch" },
               }}
@@ -35,51 +44,60 @@ export default function FirstForm() {
               <Controller
                 control={control}
                 name="name"
-                render={({ field }) => (
-                  <TextField
-                    id="outlined-basic"
-                    label="Name"
-                    variant="outlined"
-                    // value={name}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="Name"
+                      variant="outlined"
+                      // value={name}
 
-                    // onChange={handleInputChange}
-                    {...field}
-                  />
-                )}
+                      // onChange={handleInputChange}
+                      {...field}
+                    />
+                  );
+                }}
               />
               <br />
               <Controller
                 control={control}
                 name="username"
-                render={({ field }) => (
-                  <TextField
-                    id="outlined-basic"
-                    label="username"
-                    variant="outlined"
-                    // value={username}
-                    {...field}
-                    // onChange={handleInputChange}
-                  />
-                )}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="username"
+                      variant="outlined"
+                      // value={username}
+                      {...field}
+                      // onChange={handleInputChange}
+                    />
+                  );
+                }}
               />
               <br />
               <Controller
                 control={control}
                 name="email"
-                render={({ field }) => (
-                  <TextField
-                    id="outlined-basic"
-                    label="email"
-                    variant="outlined"
-                    // value={email}
-                    {...field}
-                    // onChange={handleInputChange}
-                  />
-                )}
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      id="outlined-basic"
+                      label="email"
+                      variant="outlined"
+                      // value={email}
+                      {...field}
+                      // onChange={handleInputChange}
+                    />
+                  );
+                }}
               />
             </Box>
-          </div>
+            {/* </div> */}
+          </Grid>
+          <Grid item xs={4}></Grid>
         </Grid>
+        <Grid item xs={4} md={4}></Grid>
       </Grid>
     </>
   );
